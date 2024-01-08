@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.nav-logo {
+    padding: 5px;
+    margin: 10px;
+}
+
+.nav-menu {
+    margin: auto;
+}
+
+.nav-item {
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.nav-menu a:hover {
+    border-bottom: 2px solid orange;
+}
+
+.banner {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), #009688), url('../img/slide-14.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.banner-text {
+    color: white;
+    font-size: larger;
+    text-align: center;
+    padding: 120px;
+}
+
+.banner-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.banner-btn a {
+    margin: 5px;
+    font-weight: bold;
+    color: black;
+    background-color: orange;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.banner-btn a:hover {
+    color: white;
+    background-color: black;
+}
+
+.section {
+    margin: 20px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.services, .projects, .success {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+}
+
+.success {
+    font-size: x-large;
+    background-color: whitesmoke;
+}
+
+.service-item, .project-item {
+    width: 250px;
+    height: 250px;
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.success-item {
+    width: 250px;
+    height: 100px;
+    margin: 20px;
+    padding: 15px;
+    border-bottom: 1px solid gray;
+    overflow: hidden;
+}
+
+.success-item h2 {
+    color: #009688;
+}
+
+.project-item {
+    width: 300px;
+    height: 400px;
+}
+
+.service-item:hover {
+    background-color: black;
+}
+
+.success-item:hover {
+    border-bottom: 2px solid orange;
+}
+
+.service-item:hover > * {
+    color: white;
+}
+
+.service-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.service-item a img {
+    width: 50px;
+}
+
+.project-item {
+    width: 400px;
+    border-style: none;
+    text-align: start;
+}
+
+.project-item h2 {
+    color: #009688;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.project-item:hover {
+    border-top: 3px solid orange;
+    border-bottom: 3px solid orange;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.service-item p {
+    text-align: start;
+    text-wrap: wrap;
+    padding: 10px;
+}
+
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+}
+
+.contact-item {
+    width: 500px;
+    margin: 20px;
+}
+
+.contact-item input, textarea {
+    width: 100%;
+    display: block;
+    margin: 5px;
+}
+
+.contact-item input{
+    height: 50px;
+}
+
+.contact-item button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    width: 100%;
+    height: 50px;
+    background-color: orangered;
+    border-style: none;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+}
+
+::placeholder {
+    padding: 15px;
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.address {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:stretch;
+    padding: 25px;
+}
+
+.footer-item {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    min-height: 125px;
+    padding: 20px;
+    border-left: 5px solid white;
+}
+
+.footer-item p {
+    padding: 15px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-item {
+        display: block;
+        margin: 5px 0;
+    }
+}
