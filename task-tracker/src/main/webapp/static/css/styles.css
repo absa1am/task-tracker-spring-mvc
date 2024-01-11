@@ -32,178 +32,14 @@
     border-bottom: 2px solid orange;
 }
 
-.banner {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), #009688), url('../img/slide-14.jpg');
-    background-position: center;
-    background-size: cover;
-}
-
-.banner-text {
-    color: white;
-    font-size: larger;
-    text-align: center;
-    padding: 120px;
-}
-
-.banner-btn {
+.section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    margin: 10px;
-}
-
-.banner-btn a {
-    margin: 5px;
-    font-weight: bold;
-    color: black;
-    background-color: orange;
-    text-decoration: none;
-    padding: 10px;
-}
-
-.banner-btn a:hover {
-    color: white;
-    background-color: black;
-}
-
-.section {
     margin: 20px;
     text-align: center;
     font-weight: bolder;
-}
-
-.services, .projects, .success {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: 25px;
-}
-
-.success {
-    font-size: x-large;
-    background-color: whitesmoke;
-}
-
-.service-item, .project-item {
-    width: 250px;
-    height: 250px;
-    margin: 20px;
-    padding: 15px;
-    border: 1px solid black;
-    overflow: hidden;
-}
-
-.success-item {
-    width: 250px;
-    height: 100px;
-    margin: 20px;
-    padding: 15px;
-    border-bottom: 1px solid gray;
-    overflow: hidden;
-}
-
-.success-item h2 {
-    color: #009688;
-}
-
-.project-item {
-    width: 300px;
-    height: 400px;
-}
-
-.service-item:hover {
-    background-color: black;
-}
-
-.success-item:hover {
-    border-bottom: 2px solid orange;
-}
-
-.service-item:hover > * {
-    color: white;
-}
-
-.service-item a {
-    text-decoration: none;
-    color: black;
-}
-
-.service-item a img {
-    width: 50px;
-}
-
-.project-item {
-    width: 400px;
-    border-style: none;
-    text-align: start;
-}
-
-.project-item h2 {
-    color: #009688;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.project-item:hover {
-    border-top: 3px solid orange;
-    border-bottom: 3px solid orange;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.service-item p {
-    text-align: start;
-    text-wrap: wrap;
-    padding: 10px;
-}
-
-.contact {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: 25px;
-}
-
-.contact-item {
-    width: 500px;
-    margin: 20px;
-}
-
-.contact-item input, textarea {
-    width: 100%;
-    display: block;
-    margin: 5px;
-}
-
-.contact-item input{
-    height: 50px;
-}
-
-.contact-item button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    padding: 5px;
-    width: 100%;
-    height: 50px;
-    background-color: orangered;
-    border-style: none;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-    text-align: center;
-}
-
-::placeholder {
-    padding: 15px;
 }
 
 .footer {
@@ -221,12 +57,61 @@
     text-decoration: none;
 }
 
-.address {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items:stretch;
-    padding: 25px;
+.table {
+    border-collapse: collapse;
+}
+
+.table td, .table th {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.form {
+    width: 100%;
+}
+
+input, select, textarea {
+    width: 350px;
+    height: 35px;
+    padding: 5px;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+textarea {
+    height: 150px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .footer-item {

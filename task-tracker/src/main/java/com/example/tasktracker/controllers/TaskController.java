@@ -11,4 +11,9 @@ public class TaskController {
         return "todo";
     }
 
+    @RequestMapping(value = { "/tasks" })
+    public String tasks() {
+        return "task";
+    }
+
 }
