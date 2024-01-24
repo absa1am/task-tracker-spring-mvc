@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan(basePackages = { "com.example.tasktracker.controllers", "com.example.tasktracker.repositories", "com.example.tasktracker.services" } )
+@ComponentScan(basePackages = { "com.example.tasktracker" })
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Bean

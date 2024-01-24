@@ -3,10 +3,14 @@ package com.example.tasktracker.configurations;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRegistration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+@Configuration
+@ComponentScan(basePackages = { "com.example.tasktracker" })
 public class WebAppConfig implements WebApplicationInitializer {
 
     @Override
