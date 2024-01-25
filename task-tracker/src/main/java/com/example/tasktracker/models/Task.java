@@ -1,13 +1,21 @@
 package com.example.tasktracker.models;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Table(name = "tasks")
 public class Task {
 
+    @Id
+    @GeneratedValue
     private int id;
     private String name;
     private String description;
+    @Column(name = "start_date")
     private Date startDate;
+    @Column(name = "end_date")
     private Date endDate;
     private Status status;
 
