@@ -12,6 +12,7 @@
     <mvc:annotation-driven />
     <mvc:resources mapping="/static/**" location="/static/" />
 
-    <import resource="/beans/viewResolver.xml" />
+    <import resource="/beans/viewResolver.xml"/>
+    <import resource="/beans/dataSource.xml"/>
 
 </beans>
