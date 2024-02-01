@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Task Tracker - Home</title>
         <link rel="stylesheet" th:href="@{/static/css/styles.css}">
@@ -11,22 +11,26 @@
             <section class="section">
                 <div>
                     <h1>New Task</h1>
-                    <form action="todo" method="POST" class="form">
+                    <form th:action="@{/todo}" th:object="${task}" th:method="post" class="form">
                         <label for="name">Task</label>
-                        <input type="text" name="name" id="name" placeholder="Your task name" /><br>
+                        <input type="text" th:field="${task.name}" id="name" placeholder="Your task name" /><br>
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="${task.name}"></span>
                         <label for="description">Description</label>
-                        <textarea id="description" name="description" placeholder="Your task description" rows="10"></textarea><br>
+                        <textarea id="description" th:field="${task.description}" placeholder="Your task description" rows="10"></textarea><br>
+                        <span th:if="${#fields.hasErrors('description')}" th:errors="${task.description}"></span>
                         <label for="startDate">Start Date</label>
-                        <input type="date" id="startDate" name="startDate" /><br>
+                        <input type="date" id="startDate" th:field="${task.startDate}" /><br>
+                        <span th:if="${#fields.hasErrors('startDate')}" th:errors="${task.startDate}"></span>
                         <label for="endDate">End Date</label>
-                        <input type="date" id="endDate" name="endDate" /><br>
+                        <input type="date" id="endDate" th:field="${task.endDate}" /><br>
+                        <span th:if="${#fields.hasErrors('endDate')}" th:errors="${task.endDate}"></span>
                         <label for="status">Status</label>
-                        <select name="status" id="status">
-                            <option value="Pending">Pending</option>
-                            <option value="Processing">Processing</option>
-                            <option value="Backlog">Backlog</option>
-                            <option value="Completed">Completed</option>
+                        <select th:field="${task.status}" id="status">
+                            <div th:each="s : ${status}">
+                                <option th:value="${s}" th:text="${s.value}"></option>
+                            </div>
                         </select><br>
+                        <span th:if="${#fields.hasErrors('status')}" th:errors="${task.status}"></span>
                         <input type="submit" value="Add task" />
                     </form>
                 </div>
