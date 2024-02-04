@@ -2,8 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
         <title>Task Tracker - Home</title>
-        <link rel="stylesheet" th:href="@{/static/css/styles.css}">
-        <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css}">
+        <div th:replace="~{layouts/styles :: #styles}"></div>
     </head>
     <body>
         <div th:replace="~{layouts/nav :: #nav}"></div>
@@ -20,66 +19,11 @@
                             <th>Deadline</th>
                             <th>Action</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Reading book</td>
-                            <td>Pending</td>
-                            <td>01/11/2024 - 01/11/2024</td>
-                            <td>
-                                <a href="#"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#"><i class="bi bi-eye"></i></a>
-                                <a href="#"><i class="bi bi-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Walking</td>
-                            <td>Pending</td>
-                            <td>01/11/2024 - 01/11/2024</td>
-                            <td>
-                                <a href="#"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#"><i class="bi bi-eye"></i></a>
-                                <a href="#"><i class="bi bi-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Walking</td>
-                            <td>Pending</td>
-                            <td>01/11/2024 - 01/11/2024</td>
-                            <td>
-                                <a href="#"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#"><i class="bi bi-eye"></i></a>
-                                <a href="#"><i class="bi bi-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Walking</td>
-                            <td>Pending</td>
-                            <td>01/11/2024 - 01/11/2024</td>
-                            <td>
-                                <a href="#"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#"><i class="bi bi-eye"></i></a>
-                                <a href="#"><i class="bi bi-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Walking</td>
-                            <td>Pending</td>
-                            <td>01/11/2024 - 01/11/2024</td>
-                            <td>
-                                <a href="#"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#"><i class="bi bi-eye"></i></a>
-                                <a href="#"><i class="bi bi-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Walking</td>
-                            <td>Pending</td>
-                            <td>01/11/2024 - 01/11/2024</td>
+                        <tr th:each="task : ${tasks}">
+                            <td th:text="${task.id}"></td>
+                            <td th:text="${task.name}"></td>
+                            <td th:text="${task.status.value}"></td>
+                            <td th:text="${task.startDate}"></td>
                             <td>
                                 <a href="#"><i class="bi bi-pencil-square"></i></a>
                                 <a href="#"><i class="bi bi-eye"></i></a>
@@ -90,8 +34,6 @@
                 </div>
             </section>
         </main>
-
-        <div th:replace="~{layouts/footer :: #footer}"></div>
     </body>
 </html>
 

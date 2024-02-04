@@ -20,6 +20,15 @@ public class TaskController {
         this.taskService = taskService;
     }
 
+    @GetMapping("/tasks")
+    public String index(Model model) {
+        var tasks = taskService.getTasks();
+
+        model.addAttribute("tasks", tasks);
+
+        return "task";
+    }
+
     @GetMapping("/todo")
     public String createTodo(Model model) {
         model.addAttribute("task", new Task());
@@ -39,11 +48,6 @@ public class TaskController {
         taskService.saveTask(task);
 
         return "redirect:/tasks";
-    }
-
-    @GetMapping(value = { "/tasks" })
-    public String tasks() {
-        return "task";
     }
 
 }
