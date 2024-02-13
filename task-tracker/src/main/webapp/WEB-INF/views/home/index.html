@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
-        <title>Task Tracker - Home</title>
-        <div th:replace="~{layouts/styles :: #styles}"></div>
+        <title>Home - Task Tracker</title>
+        <link rel="stylesheet" th:href="@{/static/css/styles.css}">
     </head>
     <body>
         <div th:replace="~{layouts/nav :: #nav}"></div>
@@ -25,7 +25,7 @@
                             <td th:text="${task.status.value}"></td>
                             <td th:text="${task.startDate}"></td>
                             <td>
-                                <a href="#"><i class="bi bi-pencil-square"></i></a>
+                                <a th:href="@{/todo/{id}/update(id=${task.id})}"><i class="bi bi-pencil-square"></i></a>
                                 <a href="#"><i class="bi bi-eye"></i></a>
                                 <a href="#"><i class="bi bi-trash"></i></a>
                             </td>

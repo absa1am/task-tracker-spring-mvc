@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Task Tracker - Home</title>
+        <title>Create - Task Tracker</title>
         <link rel="stylesheet" th:href="@{/static/css/styles.css}">
     </head>
     <body>
@@ -11,7 +11,7 @@
             <section class="section">
                 <div>
                     <h1>New Task</h1>
-                    <form th:action="@{/todo}" th:object="${task}" th:method="post" class="form">
+                    <form th:action="@{/task/create}" th:object="${task}" th:method="post" class="form">
                         <label for="name">Task</label>
                         <input type="text" th:field="${task.name}" id="name" placeholder="Your task name" /><br>
                         <span th:if="${#fields.hasErrors('name')}" th:errors="${task.name}"></span>

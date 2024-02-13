@@ -20,7 +20,7 @@ public class HomeController {
 
         model.addAttribute("tasks", tasks);
 
-        return "index";
+        return "home/index";
     }
 
 }

@@ -20,34 +20,40 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-    @GetMapping("/tasks")
+    @GetMapping("/task")
     public String index(Model model) {
         var tasks = taskService.getTasks();
 
         model.addAttribute("tasks", tasks);
 
-        return "task";
+        return "task/index";
     }
 
-    @GetMapping("/todo")
-    public String createTodo(Model model) {
+    @GetMapping("/task/create")
+    public String create(Model model) {
         model.addAttribute("task", new Task());
         model.addAttribute("status", Status.values());
 
-        return "todo";
+        return "task/create";
     }
 
-    @PostMapping("/todo")
-    public String createTodo(@Valid @ModelAttribute("task") Task task, Errors errors, Model model) {
+    @PostMapping("/task/create")
+    public String create(@Valid @ModelAttribute("task") Task task, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("status", Status.values());
 
-            return "todo";
+            return "task/create";
         }
 
         taskService.saveTask(task);
 
-        return "redirect:/tasks";
+        return "redirect:/task";
+    }
+
+    @GetMapping("/task/{id}/update")
+    public String update(Model model) {
+
+        return "task/update";
     }
 
 }

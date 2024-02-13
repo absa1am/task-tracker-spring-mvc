@@ -20,7 +20,7 @@ public class StrengthController {
 
         model.addAttribute("report", report);
 
-        return "strength";
+        return "strength/index";
     }
 
 }
