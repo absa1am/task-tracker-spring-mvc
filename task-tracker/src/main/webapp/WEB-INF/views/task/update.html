@@ -10,7 +10,7 @@
         <main>
             <section class="section">
                 <div>
-                    <h1>New Task</h1>
+                    <h1>Update Task</h1>
                     <form th:action="@{/task/{id}/update(id=${task.id})}" th:object="${task}" th:method="post" class="form">
                         <label for="name">Task</label>
                         <input type="text" th:field="${task.name}" id="name" placeholder="Your task name" /><br>
@@ -31,7 +31,7 @@
                             </div>
                         </select><br>
                         <span th:if="${#fields.hasErrors('status')}" th:errors="${task.status}"></span>
-                        <input type="submit" value="Add task" />
+                        <input type="submit" value="Update task" />
                     </form>
                 </div>
             </section>

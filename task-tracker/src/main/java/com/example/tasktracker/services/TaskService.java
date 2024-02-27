@@ -21,6 +21,10 @@ public class TaskService {
         return taskRepository.getAll();
     }
 
+    public Task getTask(int id) {
+        return taskRepository.getTask(id);
+    }
+
     public Map<String, Integer> getReport() {
         var tasks = getTasks();
         Map<String, Integer> report = new HashMap<>();
@@ -43,6 +47,19 @@ public class TaskService {
 
     public void saveTask(Task task) {
         taskRepository.saveTask(task);
+    }
+
+    public void updateTask(Task newTask, int id) {
+        Task oldTask = taskRepository.getTask(id);
+
+        oldTask.setId(newTask.getId());
+        oldTask.setName(newTask.getName());
+        oldTask.setDescription(newTask.getDescription());
+        oldTask.setStartDate(newTask.getStartDate());
+        oldTask.setEndDate(newTask.getEndDate());
+        oldTask.setStatus(newTask.getStatus());
+
+        taskRepository.updateTask(oldTask);
     }
 
 }

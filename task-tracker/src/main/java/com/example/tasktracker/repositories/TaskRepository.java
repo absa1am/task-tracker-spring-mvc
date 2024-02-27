@@ -24,8 +24,20 @@ public class TaskRepository {
         return session.createQuery("FROM Task", Task.class).getResultList();
     }
 
+    public Task getTask(int id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        Task task = session.get(Task.class, id);
+
+        return task;
+    }
+
     public void saveTask(Task task) {
         sessionFactory.getCurrentSession().persist(task);
+    }
+
+    public  void  updateTask(Task task) {
+        sessionFactory.getCurrentSession().update(task);
     }
 
 }

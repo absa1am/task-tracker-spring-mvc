@@ -26,9 +26,9 @@
                             <td th:text="${task.status.value}"></td>
                             <td th:text="${task.startDate}"></td>
                             <td>
-                                <a th:href="@{/todo/{id}/update(id=${task.id})}"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#"><i class="bi bi-eye"></i></a>
-                                <a href="#"><i class="bi bi-trash"></i></a>
+                                <a th:href="@{/task/{id}/update(id=${task.id})}"><i class="bi bi-pencil-square"></i></a>
+                                <a th:href="@{/task/{id}/view(id=${task.id})}"><i class="bi bi-eye"></i></a>
+                                <a th:href="@{/task/{id}/delete(id=${task.id})}"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                     </table>

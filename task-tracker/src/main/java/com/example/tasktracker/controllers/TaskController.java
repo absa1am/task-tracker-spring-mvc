@@ -51,9 +51,24 @@ public class TaskController {
     }
 
     @GetMapping("/task/{id}/update")
-    public String update(Model model) {
+    public String update(@PathVariable("id") int id, Model model) {
+        model.addAttribute("task", taskService.getTask(id));
+        model.addAttribute("status", Status.values());
 
         return "task/update";
+    }
+
+    @PostMapping("/task/{id}/update")
+    public String update(@PathVariable("id") int id, @Valid @ModelAttribute("task") Task task, Errors errors, Model model) {
+        if (errors.hasErrors()) {
+            model.addAttribute("status", Status.values());
+
+            return "task/update";
+        }
+
+        taskService.updateTask(task, id);
+
+        return "redirect:/";
     }
 
 }
