@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <title>Tasks - Task Tracker</title>
+        <link rel="stylesheet" th:href="@{/static/css/styles.css}">
+        <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css}">
+    </head>
+    <body>
+        <div th:replace="~{layouts/nav :: #nav}"></div>
+
+        <main>
+            <section class="section">
+                <div>
+                    <h1>My Tasks</h1>
+                    <table class="table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Task</th>
+                            <th>Status</th>
+                            <th>Deadline</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr th:each="task : ${tasks}">
+                            <td th:text="${task.id}"></td>
+                            <td th:text="${task.name}"></td>
+                            <td th:text="${task.status.value}"></td>
+                            <td th:text="${task.startDate}"></td>
+                            <td>
+                                <a th:href="@{/task/{id}/update(id=${task.id})}"><i class="bi bi-pencil-square"></i></a>
+                                <a th:href="@{/task/{id}/view(id=${task.id})}"><i class="bi bi-eye"></i></a>
+                                <a th:href="@{/task/{id}/delete(id=${task.id})}"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
+

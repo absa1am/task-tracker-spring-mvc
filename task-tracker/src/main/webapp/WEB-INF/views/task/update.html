@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Update - Task Tracker</title>
+        <link rel="stylesheet" th:href="@{/static/css/styles.css}">
+    </head>
+    <body>
+        <div th:replace="~{layouts/nav :: #nav}"></div>
+
+        <main>
+            <section class="section">
+                <div>
+                    <h1>Update Task</h1>
+                    <form th:action="@{/task/{id}/update(id=${task.id})}" th:object="${task}" th:method="post" class="form">
+                        <label for="name">Task</label>
+                        <input type="text" th:field="${task.name}" id="name" placeholder="Your task name" /><br>
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="${task.name}"></span>
+                        <label for="description">Description</label>
+                        <textarea id="description" th:field="${task.description}" placeholder="Your task description" rows="10"></textarea><br>
+                        <span th:if="${#fields.hasErrors('description')}" th:errors="${task.description}"></span>
+                        <label for="startDate">Start Date</label>
+                        <input type="date" id="startDate" th:field="${task.startDate}" /><br>
+                        <span th:if="${#fields.hasErrors('startDate')}" th:errors="${task.startDate}"></span>
+                        <label for="endDate">End Date</label>
+                        <input type="date" id="endDate" th:field="${task.endDate}" /><br>
+                        <span th:if="${#fields.hasErrors('endDate')}" th:errors="${task.endDate}"></span>
+                        <label for="status">Status</label>
+                        <select th:field="${task.status}" id="status">
+                            <div th:each="s : ${status}">
+                                <option th:value="${s}" th:text="${s.value}"></option>
+                            </div>
+                        </select><br>
+                        <span th:if="${#fields.hasErrors('status')}" th:errors="${task.status}"></span>
+                        <input type="submit" value="Update task" />
+                    </form>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
