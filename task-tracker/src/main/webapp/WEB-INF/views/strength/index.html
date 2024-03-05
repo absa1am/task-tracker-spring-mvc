@@ -16,20 +16,23 @@
 
         <div th:replace="~{layouts/scripts :: #scripts}"></div>
 
-        <script>
-            var total = 0;
-            var pending = 0;
-            var processing = 0;
-            var completed = 0;
-            var backlog = 0;
+        <script th:inline="javascript">
+            var total = [[${report.get('Total')}]];
+            var pending = [[${report.get('Pending') * 100}]] / total;
+            var processing = [[${report.get('Processing') * 100}]] / total;
+            var completed = [[${report.get('Completed') * 100}]] / total;
+            var backlog = [[${report.get('Backlog') * 100}]] / total;
+
             var xValues = ["Pending (%)", "Processing (%)", "Completed (%)", "Backlog (%)"];
-            var yValues = [0, 1, 2, 3];
+            var yValues = [pending, processing, completed, backlog];
+
             var barColors = [
                 "#e8c3b9",
                 "#2b5797",
                 "#1e7145",
                 "#b91d47"
             ];
+
             new Chart("myStrength", {
                 type: "doughnut",
                 data: {
@@ -40,12 +43,11 @@
                     }]
                 },
                 options: {
-                    title: {
-                        display: true,
-                        text: ""
-                    }
+                title: {
+                    display: true,
+                    text: "Strength Report"
                 }
-            });
+            }});
         </script>
     </body>
 </html>
