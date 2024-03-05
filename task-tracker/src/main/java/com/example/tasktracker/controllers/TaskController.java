@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class TaskController {
@@ -38,7 +39,7 @@ public class TaskController {
     }
 
     @PostMapping("/task/create")
-    public String create(@Valid @ModelAttribute("task") Task task, Errors errors, Model model) {
+    public String create(@Valid @ModelAttribute("task") Task task, Errors errors, Model model, RedirectAttributes redirectAttributes) {
         if (errors.hasErrors()) {
             model.addAttribute("status", Status.values());
 
@@ -46,6 +47,8 @@ public class TaskController {
         }
 
         taskService.saveTask(task);
+
+        redirectAttributes.addFlashAttribute("message", "New task created successfully.");
 
         return "redirect:/task";
     }
@@ -59,7 +62,7 @@ public class TaskController {
     }
 
     @PostMapping("/task/{id}/update")
-    public String update(@PathVariable("id") int id, @Valid @ModelAttribute("task") Task task, Errors errors, Model model) {
+    public String update(@PathVariable("id") int id, @Valid @ModelAttribute("task") Task task, Errors errors, Model model, RedirectAttributes redirectAttributes) {
         if (errors.hasErrors()) {
             model.addAttribute("status", Status.values());
 
@@ -68,7 +71,9 @@ public class TaskController {
 
         taskService.updateTask(task, id);
 
-        return "redirect:/";
+        redirectAttributes.addFlashAttribute("message", "Task updated successfully.");
+
+        return "redirect:/task";
     }
 
 }
