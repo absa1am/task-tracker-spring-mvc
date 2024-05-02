@@ -1,14 +1,32 @@
 package com.example.tasktracker.models;
 
-import java.util.Date;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "tasks")
 public class Task {
 
+    @Id
+    @GeneratedValue
     private int id;
+    @NotBlank(message = "Task name can not be empty")
     private String name;
     private String description;
-    private Date startDate;
-    private Date endDate;
+    @Column(name = "start_date")
+    @NotNull(message = "Task start date can not be empty")
+    @PastOrPresent(message = "Task start date should be past or present")
+    private LocalDate startDate;
+    @Column(name = "end_date")
+    @NotNull(message = "Task end date can not be empty")
+    @FutureOrPresent(message = "Task end date should be future or present")
+    private LocalDate endDate;
+    @NotNull(message = "Task status can not be empty")
     private Status status;
 
     public int getId() {
@@ -35,19 +53,19 @@ public class Task {
         this.description = description;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
